@@ -24542,7 +24542,7 @@ class HomeKitCard extends LitElement {
                 break;
             }
             case "fire-dom-event": {
-                fireEvent("ll-custom", tapAction);
+                fireEvent("ll-custom", tapAction, this);
                 if (tapAction.haptic || this.haptic || row.haptic || entity.haptic)
                     B(tapAction.haptic || this.haptic || row.haptic || entity.haptic);
                 break;
@@ -24574,12 +24574,11 @@ class HomeKitCard extends LitElement {
                         title: " ",
                         style: popUpStyle,
                         content: popUpCard,
-                        size: "fullscreen",
-                        deviceID: ['this']
+                        size: "fullscreen"
                     }
                 }
             };
-            fireEvent("ll-custom", action);
+            fireEvent("ll-custom", action, this);
         }
         else {
             moreInfo(entity_id);
